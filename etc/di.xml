@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="typesense_compact" xsi:type="object">Monogo\TypesenseCore\Console\Command\Compact</item>
+                <item name="typesense_flush" xsi:type="object">Monogo\TypesenseCore\Console\Command\Flush</item>
+                <item name="typesense_metrics" xsi:type="object">Monogo\TypesenseCore\Console\Command\Metrics</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Indexer\Console\Command\IndexerReindexCommand">
+        <plugin name="TypesenseIndexerReindexAll" type="Monogo\TypesenseCore\Plugin\IndexerReindex"/>
+    </type>
+</config>

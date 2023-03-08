@@ -1,0 +1,176 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="typesense" translate="label, comment" sortOrder="9000" class="typesense-tab">
+            <label>Typesense</label>
+        </tab>
+        <section id="typesense_general" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1"
+                 translate="label">
+            <label>General</label>
+            <tab>typesense</tab>
+            <resource>Monogo_Typesense::config</resource>
+            <group id="settings" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                <label>Settings</label>
+                <field id="enabled" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1"
+                       translate="label">
+                    <label>Enabled</label>
+                    <comment>Enable module</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="cloud_id" type="text" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1"
+                       translate="label">
+                    <label>Cloud ID</label>
+                    <comment/>
+                </field>
+                <field id="admin_api_key" type="obscure" sortOrder="30" showInWebsite="1" showInStore="1"
+                       showInDefault="1" translate="label">
+                    <label>Admin API Key</label>
+                    <comment/>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <config_path>typesense_general/settings/admin_api_key</config_path>
+                </field>
+                <field id="search_only_key" type="text" sortOrder="40" showInWebsite="1" showInStore="1"
+                       showInDefault="1" translate="label">
+                    <label>Search Only Key</label>
+                    <comment/>
+                </field>
+                <field id="nodes" type="text" sortOrder="50" showInWebsite="1" showInStore="1" showInDefault="1"
+                       translate="label">
+                    <label>Nodes</label>
+                    <comment/>
+                </field>
+                <field id="port" type="text" sortOrder="60" showInWebsite="1" showInStore="1" showInDefault="1"
+                       translate="label">
+                    <label>Port</label>
+                    <comment>
+                        <![CDATA[
+                            Specify port to connect with server. Default port for own instance is 8108. If you are using Cloud version, please provide 443.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="protocol" type="select" sortOrder="80" showInWebsite="1" showInStore="1" showInDefault="1"
+                       translate="label">
+                    <label>Protocol</label>
+                    <comment>Communication protocol.</comment>
+                    <source_model>Monogo\TypesenseCore\Model\Config\Source\TypeSenseProtocol</source_model>
+                </field>
+                <field id="index_prefix" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1"
+                       translate="label comment">
+                    <label>Index Name Prefix</label>
+                    <comment>
+                        <![CDATA[
+                            Specify different index prefixes for each environment (eg. local, staging, production). It will prevent your data from being overridden.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="debug" type="select" sortOrder="1000" showInWebsite="1" showInStore="1" showInDefault="1"
+                       translate="label comment">
+                    <label>Enable Debug</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[
+                           Debug generates a significant amount of data and can affect performance of the extension. Use it only for debugging.
+                        ]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+        <section id="typesense_advanced" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1"
+                 translate="label">
+            <label>Advanced</label>
+            <tab>typesense</tab>
+            <resource>Monogo_Typesense::config</resource>
+            <group id="advanced" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Advanced</label>
+                <field id="number_of_element_by_page" type="text" sortOrder="10" showInWebsite="1" showInStore="1"
+                       showInDefault="1" translate="label">
+                    <validate>validate-digits</validate>
+                    <label>Maximal number of elements per indexing job</label>
+                    <comment>
+                        <![CDATA[
+                            Default value is 300.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="archive_clear_limit" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Archive log clean limit</label>
+                    <comment>
+                        <![CDATA[
+                            (In days - default value is 30) Sets the limit when the oldest records should be cleared from the archive logs (typesense_queue_archive).
+                        ]]>
+                    </comment>
+                </field>
+                <field id="sections" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Sections</label>
+                    <frontend_model>Monogo\TypesenseCore\Model\Config\Source\Sections</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>
+                        <![CDATA[
+                            Specify  sections you want to include in the autocomplete menu (eg. products, categories, pages).
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="is_popup_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+        <section id="typesense_queue" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1"
+                 translate="label">
+            <label>Indexing Queue / Cron</label>
+            <comment>
+                <![CDATA[
+                        <div class="typesense-admin-content"></div>
+                        ]]>
+            </comment>
+            <tab>typesense</tab>
+            <resource>Monogo_Typesense::config</resource>
+            <group id="queue" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Indexing Queue / Cron</label>
+                <field id="active" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Indexing Queue</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[
+                            If enabled, all indexing operations (add, remove & update operations) will be done asynchronously using the CRON mechanism.<br>
+                            <br>
+                            To schedule the run you need to add this in your crontab:<br>
+                            <code>*/5 * * * * php /absolute/path/to/magento/bin/magento indexer:reindex typesense_queue_runner</code>
+                            <br><span class="typesense-config-warning">&#9888;</span> Enabling this option is recommended in production or if your store has a lot of products.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="number_of_job_to_run" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <validate>validate-digits</validate>
+                    <label>Number of jobs to run each time the cron is run</label>
+                    <comment>
+                        <![CDATA[
+                            Number of queued jobs to run each time the cron is launched. Default value is 5.
+                            <br><span class="typesense-config-warning">&#9888;</span>Each time the cron runs it will process ("Max number of element per indexing job" * "Number of jobs to run each time the cron is run")
+                            products.
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="number_of_retries" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <validate>validate-digits</validate>
+                    <label>Number of times to retry processing of queued jobs</label>
+                    <source_model>Monogo\TypesenseCore\Model\Config\Source\RetryValues</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
