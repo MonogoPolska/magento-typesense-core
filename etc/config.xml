@@ -10,7 +10,7 @@
     <default>
         <typesense_general>
             <settings>
-                <enabled>1</enabled>
+                <enabled>0</enabled>
                 <port><![CDATA[443]]></port>
                 <protocol><![CDATA[https]]></protocol>
             </settings>
