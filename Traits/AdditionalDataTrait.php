@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Traits;
+namespace Monogo\TypesenseCore\Traits;
 
 trait AdditionalDataTrait
 {

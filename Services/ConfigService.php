@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Services;
+namespace Monogo\TypesenseCore\Services;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\ProductMetadataInterface;

@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\Indexer;
+namespace Monogo\TypesenseCore\Model\Indexer;
 
-use Adapter\IndexManager;
 use Http\Client\Exception;
 use JsonException;
 use Magento\Framework\App\Area;
@@ -12,9 +11,10 @@ use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Store\Model\App\Emulation;
 use Magento\Store\Model\StoreManagerInterface;
-use Model\Entity\DataProvider as DataProviderCore;
-use Services\ConfigService;
-use Services\LogService;
+use Monogo\TypesenseCore\Adapter\IndexManager;
+use Monogo\TypesenseCore\Model\Entity\DataProvider as DataProviderCore;
+use Monogo\TypesenseCore\Services\ConfigService;
+use Monogo\TypesenseCore\Services\LogService;
 use Typesense\Exceptions\TypesenseClientError;
 
 abstract class Indexer

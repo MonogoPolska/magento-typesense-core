@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\ResourceModel\Job\Grid;
+namespace Monogo\TypesenseCore\Model\ResourceModel\Job\Grid;
 
-use Api\Data\JobInterface;
 use Magento\Framework\Api\ExtensibleDataInterface;
 use Magento\Framework\Api\Search\AggregationInterface;
 use Magento\Framework\Api\Search\SearchResultInterface;
@@ -12,7 +11,8 @@ use Magento\Framework\Data\Collection\Db\FetchStrategyInterface;
 use Magento\Framework\Data\Collection\EntityFactoryInterface;
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
-use Model\ResourceModel\Job\Collection as JobCollection;
+use Monogo\TypesenseCore\Api\Data\JobInterface;
+use Monogo\TypesenseCore\Model\ResourceModel\Job\Collection as JobCollection;
 use Psr\Log\LoggerInterface;
 
 class Collection extends JobCollection implements SearchResultInterface

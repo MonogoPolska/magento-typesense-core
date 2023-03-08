@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\Indexer;
+namespace Monogo\TypesenseCore\Model\Indexer;
 
 use Magento\Framework\Indexer\ActionInterface as IndexerActionInterface;
 use Magento\Framework\Mview\ActionInterface as MviewActionInterface;

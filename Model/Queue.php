@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace Model;
+namespace Monogo\TypesenseCore\Model;
 
 use Exception;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\ObjectManagerInterface;
-use Model\ResourceModel\Job\Collection;
+use Monogo\TypesenseCore\Model\ResourceModel\Job\Collection;
 use Monogo\TypesenseCore\Model\ResourceModel\Job\CollectionFactory as JobCollectionFactory;
+use Monogo\TypesenseCore\Services\ConfigService;
+use Monogo\TypesenseCore\Services\LogService;
 use PDO;
-use Services\ConfigService;
-use Services\LogService;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Zend_Db_Expr;
 use Zend_Db_Statement_Exception;

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Exceptions;
+namespace Monogo\TypesenseCore\Exceptions;
 
 use Exception;
 use Throwable;

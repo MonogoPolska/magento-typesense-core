@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\ResourceModel;
+namespace Monogo\TypesenseCore\Model\ResourceModel;
 
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;

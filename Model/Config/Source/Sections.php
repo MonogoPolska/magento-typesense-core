@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\Config\Source;
+namespace Monogo\TypesenseCore\Model\Config\Source;
 
 class Sections extends AbstractTable
 {

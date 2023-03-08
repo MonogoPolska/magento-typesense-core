@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Block\System\Form\Field;
+namespace Monogo\TypesenseCore\Block\System\Form\Field;
 
 class Select extends \Magento\Framework\View\Element\Html\Select
 {

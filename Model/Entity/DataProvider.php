@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\Entity;
+namespace Monogo\TypesenseCore\Model\Entity;
 
 use Exception;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Store\Api\Data\StoreInterface;
 use Magento\Store\Model\StoreManagerInterface;
-use Traits\StripTrait;
+use Monogo\TypesenseCore\Traits\StripTrait;
 
 class DataProvider
 {
@@ -50,20 +50,19 @@ class DataProvider
      */
     public function getStores(int $storeId = null)
     {
+        if ($storeId !== null) {
+            return [$storeId];
+        }
         $storeIds = [];
 
-        if ($storeId === null) {
-            foreach ($this->storeManager->getStores() as $store) {
-                if ($this->configService->isEnabled($store->getId()) === false) {
-                    continue;
-                }
-
-                if ($store->getData('is_active')) {
-                    $storeIds[] = $store->getId();
-                }
+        foreach ($this->storeManager->getStores() as $store) {
+            if ($this->configService->isEnabled($store->getId()) === false) {
+                continue;
             }
-        } else {
-            $storeIds = [$storeId];
+
+            if ($store->getData('is_active')) {
+                $storeIds[] = $store->getId();
+            }
         }
 
         return $storeIds;

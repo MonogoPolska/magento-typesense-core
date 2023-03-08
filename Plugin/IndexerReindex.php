@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Plugin;
+namespace Monogo\TypesenseCore\Plugin;
 
 use InvalidArgumentException;
 use Magento\Framework\Indexer\IndexerInterface;
 use Magento\Indexer\Console\Command\IndexerReindexCommand;
-use Model\Indexer\All;
-use Services\LogService;
+use Monogo\TypesenseCore\Model\Indexer\All;
+use Monogo\TypesenseCore\Services\LogService;
 use Symfony\Component\Console\Exception\ExceptionInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

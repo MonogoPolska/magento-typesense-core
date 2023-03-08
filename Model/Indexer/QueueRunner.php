@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\Indexer;
+namespace Monogo\TypesenseCore\Model\Indexer;
 
 use Magento\Framework\Indexer\ActionInterface as IndexerActionInterface;
 use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\Mview\ActionInterface as MviewActionInterface;
-use Model\Queue;
-use Services\ConfigService;
+use Monogo\TypesenseCore\Model\Queue;
+use Monogo\TypesenseCore\Services\ConfigService;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Zend_Db_Statement_Exception;
 

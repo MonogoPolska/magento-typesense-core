@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Api\Data;
+namespace Monogo\TypesenseCore\Api\Data;
 
 interface JobInterface
 {

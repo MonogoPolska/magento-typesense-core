@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Services;
+namespace Monogo\TypesenseCore\Services;
 
 use Exception;
 use Magento\Store\Model\StoreManagerInterface;
-use Psr\Log\LoggerInterface;
+use Monogo\TypesenseCore\Logger\Logger;
 
 class LogService
 {
@@ -20,9 +20,9 @@ class LogService
     private ConfigService $configService;
 
     /**
-     * @var LoggerInterface
+     * @var Logger
      */
-    private LoggerInterface $logger;
+    private Logger $logger;
 
     /**
      * @var array
@@ -37,12 +37,12 @@ class LogService
     /**
      * @param StoreManagerInterface $storeManager
      * @param ConfigService $configService
-     * @param LoggerInterface $logger
+     * @param Logger $logger
      */
     public function __construct(
         StoreManagerInterface $storeManager,
         ConfigService         $configService,
-        LoggerInterface       $logger
+        Logger                $logger
     )
     {
         $this->configService = $configService;
@@ -62,6 +62,10 @@ class LogService
         return $this->enabled;
     }
 
+    /**
+     * @param int|null $storeId
+     * @return string
+     */
     public function getStoreName(?int $storeId): string
     {
         if ($storeId === null) {
@@ -110,7 +114,7 @@ class LogService
         }
 
         if (false === isset($this->timers[$action])) {
-            throw new Exception('Typesense Logger => non existing action');
+            throw new \Exception('Typesense Logger => non existing action');
         }
 
         $this->log('<<<<< END ' . $action . ' (' . $this->formatTime($this->timers[$action], microtime(true)) . ')');

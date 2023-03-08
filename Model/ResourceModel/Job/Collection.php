@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\ResourceModel\Job;
+namespace Monogo\TypesenseCore\Model\ResourceModel\Job;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use Model\ResourceModel\Job;
+use Monogo\TypesenseCore\Model\ResourceModel\Job;
 
 class Collection extends AbstractCollection
 {
@@ -22,7 +22,7 @@ class Collection extends AbstractCollection
     protected function _construct()
     {
         $this->_init(
-            \Model\Job::class,
+            \Monogo\TypesenseCore\Model\Job::class,
             Job::class
         );
     }

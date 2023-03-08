@@ -1,45 +1,45 @@
 {
-  "typesense_queue": {
-    "column": {
-      "job_id": true,
-      "pid": true,
-      "class": true,
-      "method": true,
-      "data": true,
-      "max_retries": true,
-      "retries": true,
-      "error_log": true,
-      "data_size": true,
-      "created": true,
-      "is_full_reindex": true,
-      "locked_at": true
+    "typesense_queue": {
+        "column": {
+            "job_id": true,
+            "pid": true,
+            "class": true,
+            "method": true,
+            "data": true,
+            "max_retries": true,
+            "retries": true,
+            "error_log": true,
+            "data_size": true,
+            "created": true,
+            "is_full_reindex": true,
+            "locked_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
     },
-    "constraint": {
-      "PRIMARY": true
-    }
-  },
-  "typesense_queue_log": {
-    "column": {
-      "id": true,
-      "started": true,
-      "duration": true,
-      "processed_jobs": true,
-      "with_empty_queue": true
+    "typesense_queue_log": {
+        "column": {
+            "id": true,
+            "started": true,
+            "duration": true,
+            "processed_jobs": true,
+            "with_empty_queue": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
     },
-    "constraint": {
-      "PRIMARY": true
+    "typesense_queue_archive": {
+        "column": {
+            "id": true,
+            "pid": true,
+            "class": true,
+            "method": true,
+            "data": true,
+            "error_log": true,
+            "data_size": true,
+            "created_at": true
+        }
     }
-  },
-  "typesense_queue_archive": {
-    "column": {
-      "id": true,
-      "pid": true,
-      "class": true,
-      "method": true,
-      "data": true,
-      "error_log": true,
-      "data_size": true,
-      "created_at": true
-    }
-  }
 }

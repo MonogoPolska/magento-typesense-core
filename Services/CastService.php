@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Monogo\TypesenseCore\Traits;
+namespace Monogo\TypesenseCore\Services;
 
-trait CastTrait
+class CastService
 {
     /**
      * @var array
@@ -22,7 +22,7 @@ trait CastTrait
      * @param array $object
      * @return array
      */
-    private function castRecord(array $object): array
+    public function castRecord(array $object): array
     {
         foreach ($object as $key => &$value) {
             if (in_array($key, $this->nonCastableAttributes, true) === true) {
@@ -37,7 +37,7 @@ trait CastTrait
      * @param mixed $value
      * @return mixed
      */
-    private function castAttribute(mixed $value): mixed
+    public function castAttribute(mixed $value): mixed
     {
         if (is_numeric($value) && floatval($value) === floatval((int)$value)) {
             return (int)$value;

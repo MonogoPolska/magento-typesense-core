@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\Config\Source;
+namespace Monogo\TypesenseCore\Model\Config\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
-use function Monogo\TypesenseCore\Model\Config\Source\__;
 
 class RetryValues implements OptionSourceInterface
 {

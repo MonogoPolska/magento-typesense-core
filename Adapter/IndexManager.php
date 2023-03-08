@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Adapter;
+namespace Monogo\TypesenseCore\Adapter;
 
 use DateTime;
 use DateTimeZone;
-use Exceptions\ConnectionException;
 use Http\Client\Exception;
 use JsonException;
-use Services\LogService;
-use Traits\CastTrait;
+use Monogo\TypesenseCore\Exceptions\ConnectionException;
+use Monogo\TypesenseCore\Services\LogService;
+use Monogo\TypesenseCore\Traits\CastTrait;
 use Typesense\Client as TypeSenseClient;
 use Typesense\Collection;
 use Typesense\Exceptions\ConfigError;
@@ -76,7 +76,7 @@ abstract class IndexManager
      * @return void
      * @throws \Exception
      */
-    public function prepareRecords(array &$objects): void
+    private function prepareRecords(array &$objects): void
     {
         $currentCET = new DateTime('now', new DateTimeZone('Europe/Paris'));
         $currentCET = $currentCET->format('Y-m-d H:i:s');
@@ -151,7 +151,7 @@ abstract class IndexManager
      * @param array $result
      * @return void
      */
-    public function logResult(array $result)
+    private function logResult(array $result)
     {
         foreach ($result as $item) {
             if (isset($item['error'])) {

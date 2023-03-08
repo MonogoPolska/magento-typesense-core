@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Console\Command;
+namespace Monogo\TypesenseCore\Console\Command;
 
-use Adapter\Client;
-use Exceptions\ConnectionException;
 use Http\Client\Exception;
+use Monogo\TypesenseCore\Adapter\Client;
+use Monogo\TypesenseCore\Exceptions\ConnectionException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

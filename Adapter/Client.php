@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Adapter;
+namespace Monogo\TypesenseCore\Adapter;
 
-use Exceptions\ConnectionException;
 use Http\Client\Exception;
-use Services\ConfigService;
+use Monogo\TypesenseCore\Exceptions\ConnectionException;
+use Monogo\TypesenseCore\Services\ConfigService;
 use Typesense\Client as TypeSenseClient;
 use Typesense\Exceptions\ConfigError;
 

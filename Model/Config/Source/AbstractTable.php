@@ -1,18 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\Config\Source;
+namespace Monogo\TypesenseCore\Model\Config\Source;
 
-use Block\System\Form\Field\Select;
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\DataObject;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Element\BlockInterface;
-use Services\ConfigService;
-use Traits\AdditionalDataTrait;
-use function Monogo\TypesenseCore\Model\Config\Source\__;
+use Monogo\TypesenseCore\Block\System\Form\Field\Select;
+use Monogo\TypesenseCore\Services\ConfigService;
+use Monogo\TypesenseCore\Traits\AdditionalDataTrait;
 
 /**
  * Typesense custom sort order field

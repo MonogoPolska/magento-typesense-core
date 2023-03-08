@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Model\Indexer;
+namespace Monogo\TypesenseCore\Model\Indexer;
 
 use Magento\Framework\Indexer\ActionInterface as IndexerActionInterface;
 use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\Mview\ActionInterface as MviewActionInterface;
-use Model\Entity\DataProvider;
-use Model\Indexer\Indexer as IndexerRunner;
-use Model\Queue;
-use Services\ConfigService;
+use Monogo\TypesenseCore\Model\Entity\DataProvider;
+use Monogo\TypesenseCore\Model\Indexer\Indexer as IndexerRunner;
+use Monogo\TypesenseCore\Model\Queue;
+use Monogo\TypesenseCore\Services\ConfigService;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 abstract class DataIndexer implements IndexerActionInterface, MviewActionInterface

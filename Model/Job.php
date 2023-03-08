@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace Model;
+namespace Monogo\TypesenseCore\Model;
 
-use Api\Data\JobInterface;
 use Exception;
 use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Exception\AlreadyExistsException;
@@ -12,7 +11,8 @@ use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\Registry;
-use Traits\AdditionalDataTrait;
+use Monogo\TypesenseCore\Api\Data\JobInterface;
+use Monogo\TypesenseCore\Traits\AdditionalDataTrait;
 
 /**
  * @api
@@ -329,6 +329,6 @@ class Job extends AbstractModel implements JobInterface
      */
     protected function _construct()
     {
-        $this->_init(\Model\ResourceModel\Job::class);
+        $this->_init(ResourceModel\Job::class);
     }
 }
