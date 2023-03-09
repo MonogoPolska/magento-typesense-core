@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="typesense_queue_runner" view_id="typesense_queue_runner"
+             class="Monogo\TypesenseCore\Model\Indexer\QueueRunner">
+        <title translate="true">Typesense Queue Runner</title>
+        <description translate="true">
+            Processes the indexing queue if enabled. This allows to run jobs in the indexing queues.
+        </description>
+    </indexer>
+    <indexer id="typesense_all" view_id="typesense_all" class="Monogo\TypesenseCore\Model\Indexer\All">
+        <title translate="true">Typesense Reindex all available indexers</title>
+        <description translate="true">
+            Processes all the Typesense indexes
+        </description>
+    </indexer>
+</config>
