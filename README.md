@@ -15,6 +15,6 @@ Configure the additional parameters
 Configure Queue/Cron for indexers
 
 # Credits
+- [Monogo](https://monogo.pl/en)
 - [Typesense](https://typesense.org)
 - [Official Algolia magento module](https://github.com/algolia/algoliasearch-magento-2)
-- [Monogo](https://monogo.pl/en)

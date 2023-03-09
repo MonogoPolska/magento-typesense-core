@@ -10,19 +10,13 @@ class Sections extends AbstractTable
      */
     protected function getTableData(): array
     {
-        $config = $this->config;
-
         return [
             'name' => [
                 'label' => 'Section',
-                'values' => function () use ($config) {
+                'values' => function () {
                     $options = [];
-
                     $sections = $this->getAdditionalData();
-
-                    $attributes = $config->getFacets();
-
-                    foreach ($attributes as $attribute) {
+                    foreach ($this->config->getFacets() as $attribute) {
                         if ($attribute['attribute'] === 'price') {
                             continue;
                         }
@@ -40,7 +34,6 @@ class Sections extends AbstractTable
                     foreach ($sections as $section) {
                         $options[$section['name']] = $section['label'];
                     }
-
                     return $options;
                 },
             ],

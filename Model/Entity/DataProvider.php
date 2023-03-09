@@ -7,6 +7,7 @@ use Exception;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Store\Api\Data\StoreInterface;
 use Magento\Store\Model\StoreManagerInterface;
+use Monogo\TypesenseCore\Services\ConfigService;
 use Monogo\TypesenseCore\Traits\StripTrait;
 
 class DataProvider
@@ -14,9 +15,9 @@ class DataProvider
     use StripTrait;
 
     /**
-     * @var mixed
+     * @var ConfigService
      */
-    private mixed $configService;
+    private ConfigService $configService;
 
     /**
      * @var StoreManagerInterface
@@ -24,11 +25,11 @@ class DataProvider
     private StoreManagerInterface $storeManager;
 
     /**
-     * @param mixed $configService
+     * @param ConfigService $configService
      * @param StoreManagerInterface $storeManager
      */
     public function __construct(
-        mixed                 $configService,
+        ConfigService         $configService,
         StoreManagerInterface $storeManager,
     )
     {
