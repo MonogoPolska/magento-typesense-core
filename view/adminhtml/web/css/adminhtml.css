@@ -1,0 +1,21 @@
+.config-nav-block.typesense-tab strong:before {
+    background: url(../images/typesense-icon.png) no-repeat !important;
+    width: 30px;
+    height: 30px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: middle;
+
+}
+
+.typesense-config-warning {
+    font-size: 30px;
+    color: #D83900;
+    position: relative;
+    top: 6px;
+}
+
+.typesense-admin-content {
+    margin-bottom: 2rem;
+}

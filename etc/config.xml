@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <typesense_general>
+            <settings>
+                <enabled>0</enabled>
+                <port><![CDATA[443]]></port>
+                <protocol><![CDATA[https]]></protocol>
+            </settings>
+        </typesense_general>
+        <typesense_advanced>
+            <advanced>
+                <number_of_element_by_page>300</number_of_element_by_page>
+                <archive_clear_limit>30</archive_clear_limit>
+            </advanced>
+        </typesense_advanced>
+        <typesense_queue>
+            <queue>
+                <number_of_job_to_run>5</number_of_job_to_run>
+                <number_of_retries>5</number_of_retries>
+            </queue>
+        </typesense_queue>
+    </default>
+</config>
