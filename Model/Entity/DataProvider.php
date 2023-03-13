@@ -49,7 +49,7 @@ class DataProvider
      * @param int|null $storeId
      * @return array|int[]
      */
-    public function getStores(int $storeId = null)
+    public function getStores(int $storeId = null):array
     {
         if ($storeId !== null) {
             return [$storeId];
@@ -57,12 +57,13 @@ class DataProvider
         $storeIds = [];
 
         foreach ($this->storeManager->getStores() as $store) {
-            if ($this->configService->isEnabled($store->getId()) === false) {
+            $storeIdCollected = (int)$store->getId();
+            if ($this->configService->isEnabled($storeIdCollected) === false) {
                 continue;
             }
 
             if ($store->getData('is_active')) {
-                $storeIds[] = $store->getId();
+                $storeIds[] = $storeIdCollected;
             }
         }
 
