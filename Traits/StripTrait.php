@@ -17,7 +17,7 @@ trait StripTrait
         if ($completeRemoveTags && $completeRemoveTags !== [] && $s) {
             $dom = new DOMDocument();
             libxml_use_internal_errors(true);
-            $dom->loadHTML(mb_convert_encoding($s, 'HTML-ENTITIES', 'UTF-8'));
+            $dom->loadHTML(mb_encode_numericentity($s, [0x80, 0x10FFFF, 0, ~0], 'UTF-8'));
             libxml_use_internal_errors(false);
 
             $toRemove = [];
