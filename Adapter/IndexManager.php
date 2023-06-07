@@ -20,9 +20,9 @@ abstract class IndexManager
     use CastTrait;
 
     /**
-     * @var TypeSenseClient
+     * @var TypeSenseClient|null
      */
-    protected TypeSenseClient $client;
+    protected ?TypeSenseClient $client;
 
     /**
      * @var LogService
