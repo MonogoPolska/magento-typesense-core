@@ -172,6 +172,10 @@ abstract class Indexer
 
         if (is_null($dataIds)) {
             $this->indexManager->addAlias($toIndexName, $aliasName);
+            $this->eventManager->dispatch(
+                'typesense_core_after_add_alias',
+                ['store_id'=> $storeId, 'alias' => $aliasName, 'collection' => $toIndexName]
+            );
         }
 
         $this->eventManager->dispatch(

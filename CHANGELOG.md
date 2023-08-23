@@ -1,5 +1,8 @@
 # CHANGE LOG
 
+## 1.0.5
+- Added RegisteredIndexers class and Flush event
+
 ## 1.0.4
 - Minor fixes
 

@@ -26,7 +26,7 @@
                     <comment>
                         <![CDATA[
                            Read more about
-                                <a href="https://typesense.org/docs/0.24.0/api/api-keys.html" target="_blank">API keys</a>.
+                                <a href="https://typesense.org/docs/0.25.0/api/api-keys.html" target="_blank">API keys</a>.
                             </div>
                         ]]>
                     </comment>
@@ -37,7 +37,7 @@
                     <comment>
                         <![CDATA[
                            Read more about
-                                <a href="https://typesense.org/docs/0.24.0/api/api-keys.html" target="_blank">API keys</a>.
+                                <a href="https://typesense.org/docs/0.25.0/api/api-keys.html" target="_blank">API keys</a>.
                         ]]>
                     </comment>
                 </field>
@@ -48,7 +48,7 @@
                         <![CDATA[
                             Specify host to connect with server. For Typesense Cloud use xxx.a1.typesense.net.
                             Read more about
-                                <a href="https://typesense.org/docs/0.24.0/api/authentication.html" target="_blank">Authentication keys</a>.
+                                <a href="https://typesense.org/docs/0.25.0/api/authentication.html" target="_blank">Authentication keys</a>.
                         ]]>
                     </comment>
                 </field>
@@ -59,7 +59,7 @@
                         <![CDATA[
                             Specify port to connect with server. Default port for own instance is 8108. For Typesense Cloud use 443.
                             Read more about
-                                <a href="https://typesense.org/docs/0.24.0/api/authentication.html" target="_blank">Authentication keys</a>.
+                                <a href="https://typesense.org/docs/0.25.0/api/authentication.html" target="_blank">Authentication keys</a>.
                         ]]>
                     </comment>
                 </field>
@@ -71,7 +71,7 @@
                         <![CDATA[
                             Specify protocol to connect with server. For Typesense Cloud use https.
                             Read more about
-                                <a href="https://typesense.org/docs/0.24.0/api/authentication.html" target="_blank">Authentication keys</a>.
+                                <a href="https://typesense.org/docs/0.25.0/api/authentication.html" target="_blank">Authentication keys</a>.
                         ]]>
                     </comment>
                 </field>
