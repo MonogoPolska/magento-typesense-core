@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Monogo\TypesenseCore\Console\Command;
 
 use Http\Client\Exception;
+use Magento\Framework\Event\ManagerInterface;
 use Monogo\TypesenseCore\Adapter\Client;
 use Monogo\TypesenseCore\Exceptions\ConnectionException;
 use Symfony\Component\Console\Command\Command;
@@ -21,6 +22,11 @@ class Flush extends Command
     protected Client $client;
 
     /**
+     * @var ManagerInterface
+     */
+    private ManagerInterface $eventManager;
+
+    /**
      * @var int
      */
     protected int $takenActions = 0;
@@ -29,10 +35,11 @@ class Flush extends Command
      * @param Client $client
      * @param string|null $name
      */
-    public function __construct(Client $client, string $name = null)
+    public function __construct(Client $client, ManagerInterface $eventManager, string $name = null)
     {
         parent::__construct($name);
         $this->client = $client;
+        $this->eventManager = $eventManager;
     }
 
     /**
@@ -57,6 +64,11 @@ class Flush extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $this->eventManager->dispatch(
+            'typesense_before_flush',
+            ['output'=>$output]
+        );
+
         $client = $this->client->getClient();
         $this->removeAllCollections($client, $output);
         $this->removeAllAliases($client, $output);
@@ -64,6 +76,10 @@ class Flush extends Command
             $output->writeln('All entities are already removed');
 
         }
+        $this->eventManager->dispatch(
+            'typesense_after_flush',
+            ['output'=>$output]
+        );
         return 1;
     }
 
