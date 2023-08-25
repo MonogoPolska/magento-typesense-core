@@ -4,8 +4,8 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Monogo_Typesense::config" title="Typesense Configuration" translate="title"
-                          sortOrder="9000"/>
+                <resource id="Monogo_Typesense::menu" title="Typesense Menu" translate="title" sortOrder="9000"/>
+                <resource id="Monogo_Typesense::config" title="Typesense Configuration" translate="title" sortOrder="9000"/>
             </resource>
         </resources>
     </acl>
