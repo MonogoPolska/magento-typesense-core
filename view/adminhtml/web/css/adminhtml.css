@@ -19,3 +19,17 @@
 .typesense-admin-content {
     margin-bottom: 2rem;
 }
+
+#menu-monogo-typesense-typesense {
+    > a:before {
+        background: url(../images/typesense-inverted.png) no-repeat center;
+        background-size: contain;
+        content: '';
+    }
+
+    > a:hover:before,
+    ._show > a:before {
+        background: url(../images/typesense-inverted.png) no-repeat center;
+        background-size: contain;
+    }
+}

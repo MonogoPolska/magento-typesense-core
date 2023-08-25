@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Monogo_Typesense::typesense"
+             title="Typesense"
+             module="Monogo_TypesenseCore"
+             sortOrder="20"
+             resource="Monogo_Typesense::menu" />
+        <add id="Monogo_Typesense::typesense_config"
+             parent="Monogo_Typesense::typesense"
+             title="Configuration"
+             module="Monogo_TypesenseCore"
+             action="adminhtml/system_config/edit/section/typesense_general"
+             sortOrder="10"
+             resource="Monogo_Typesense::menu"/>
+    </menu>
+</config>
