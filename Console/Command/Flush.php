@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Monogo\TypesenseCore\Console\Command;
 
 use Http\Client\Exception;
+use Magento\Framework\Console\Cli;
 use Magento\Framework\Event\ManagerInterface;
 use Monogo\TypesenseCore\Adapter\Client;
 use Monogo\TypesenseCore\Exceptions\ConnectionException;
@@ -19,7 +20,7 @@ class Flush extends Command
     /**
      * @var Client
      */
-    protected Client $client;
+    private Client $client;
 
     /**
      * @var ManagerInterface
@@ -27,17 +28,17 @@ class Flush extends Command
     private ManagerInterface $eventManager;
 
     /**
-     * @var int
+     * @param Client           $client
+     * @param ManagerInterface $eventManager
+     * @param string|null      $name
      */
-    protected int $takenActions = 0;
-
-    /**
-     * @param Client $client
-     * @param string|null $name
-     */
-    public function __construct(Client $client, ManagerInterface $eventManager, string $name = null)
-    {
+    public function __construct(
+        Client $client,
+        ManagerInterface $eventManager,
+        string $name = null
+    ) {
         parent::__construct($name);
+
         $this->client = $client;
         $this->eventManager = $eventManager;
     }
@@ -70,58 +71,75 @@ class Flush extends Command
         );
 
         $client = $this->client->getClient();
-        $this->removeAllCollections($client, $output);
-        $this->removeAllAliases($client, $output);
-        if ($this->takenActions == 0) {
-            $output->writeln('All entities are already removed');
 
+        $numberOfRemovedEntities = $this->removeAllCollections($client, $output)
+            + $this->removeAllAliases($client, $output);
+
+        if ($numberOfRemovedEntities == 0) {
+            $output->writeln('All entities are already removed.');
         }
+
         $this->eventManager->dispatch(
             'typesense_after_flush',
             ['output'=>$output]
         );
-        return 1;
+
+        return Cli::RETURN_SUCCESS;
     }
 
     /**
      * @param TypesenseClient $client
      * @param OutputInterface $output
-     * @return void
+     *
+     * @return int
+     *
      * @throws Exception
      * @throws TypesenseClientError
      */
-    protected function removeAllCollections(TypesenseClient $client, OutputInterface $output): void
+    private function removeAllCollections(TypesenseClient $client, OutputInterface $output): int
     {
         $collection = $client->getCollections()->retrieve();
+
         if (count($collection)) {
             $output->writeln('Removing collections');
         }
+
+        $removedCollectionsCount = 0;
+
         foreach ($collection as $item) {
             $output->writeln($item['name']);
             $client->collections[$item['name']]->delete();
-            $this->takenActions++;
+            $removedCollectionsCount++;
         }
 
+        return $removedCollectionsCount;
     }
 
     /**
      * @param TypesenseClient $client
      * @param OutputInterface $output
-     * @return void
+     *
+     * @return int
+     *
      * @throws Exception
      * @throws TypesenseClientError
      */
-    protected function removeAllAliases(TypesenseClient $client, OutputInterface $output): void
+    private function removeAllAliases(TypesenseClient $client, OutputInterface $output): int
     {
         $collection = $client->getAliases()->retrieve();
+
         if (count($collection['aliases'])) {
             $output->writeln('Removing aliases');
         }
+
+        $removedAliasesCount = 0;
+
         foreach ($collection['aliases'] as $item) {
             $output->writeln($item['name']);
             $client->aliases[$item['name']]->delete();
-            $this->takenActions++;
+            $removedAliasesCount++;
         }
 
+        return $removedAliasesCount;
     }
 }
