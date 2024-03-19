@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Monogo\TypesenseCore\Console\Command;
 
 use Http\Client\Exception;
+use Magento\Framework\Console\Cli;
 use Monogo\TypesenseCore\Adapter\Client;
 use Monogo\TypesenseCore\Exceptions\ConnectionException;
 use Symfony\Component\Console\Command\Command;
@@ -18,7 +19,7 @@ class Metrics extends Command
     /**
      * @var array|string[]
      */
-    protected array $nameMapping = [
+    private array $nameMapping = [
         'system_disk_total_bytes' => "Sysytem Total disc space",
         'system_disk_used_bytes' => "System used disc space",
         'system_memory_total_bytes' => "System total memory space",
@@ -31,10 +32,8 @@ class Metrics extends Command
         'typesense_memory_resident_bytes' => "Server memory resident",
         'typesense_memory_retained_bytes' => "Server memory retained",
     ];
-    /**
-     * @var Client
-     */
-    protected Client $client;
+
+    private Client $client;
 
     /**
      * @param Client $client
@@ -72,7 +71,8 @@ class Metrics extends Command
         $this->getVersion($client, $output);
         $this->checkHealth($client, $output);
         $this->getMetrics($client, $output);
-        return 1;
+
+        return Cli::RETURN_SUCCESS;
     }
 
     /**
@@ -82,7 +82,7 @@ class Metrics extends Command
      * @throws Exception
      * @throws TypesenseClientError
      */
-    protected function getVersion(TypesenseClient $client, OutputInterface $output): void
+    private function getVersion(TypesenseClient $client, OutputInterface $output): void
     {
         $output->write('Server version: ');
         $version = $client->getDebug()->retrieve();
@@ -96,7 +96,7 @@ class Metrics extends Command
      * @throws Exception
      * @throws TypesenseClientError
      */
-    protected function checkHealth(TypesenseClient $client, OutputInterface $output): void
+    private function checkHealth(TypesenseClient $client, OutputInterface $output): void
     {
         $output->write('Health status: ');
         $health = $client->getHealth()->retrieve();
@@ -110,7 +110,7 @@ class Metrics extends Command
      * @throws Exception
      * @throws TypesenseClientError
      */
-    protected function getMetrics(TypesenseClient $client, OutputInterface $output): void
+    private function getMetrics(TypesenseClient $client, OutputInterface $output): void
     {
         $output->writeln('');
         $output->writeln('Server Metrics');
@@ -120,11 +120,12 @@ class Metrics extends Command
             if ($metricName != 'typesense_memory_fragmentation_ratio') {
                 $value = $this->formatData((int)$value);
             }
+
             if (isset($this->nameMapping[$metricName])) {
                 $metricName = $this->nameMapping[$metricName];
             }
-            $output->writeln($metricName . ': ' . $value);
 
+            $output->writeln($metricName . ': ' . $value);
         }
     }
 
@@ -133,14 +134,15 @@ class Metrics extends Command
      * @param $precision
      * @return string
      */
-    protected function formatData($bytes, $precision = 2): string
+    private function formatData($bytes, $precision = 2): string
     {
         if ($bytes == 0) {
             return '0B';
         }
+
         $unit = ["B", "KB", "MB", "GB"];
         $exp = floor(log($bytes, 1024)) | 0;
-        return round($bytes / (pow(1024, $exp)), $precision) . $unit[$exp];
 
+        return round($bytes / (pow(1024, $exp)), $precision) . $unit[$exp];
     }
 }

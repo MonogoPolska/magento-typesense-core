@@ -139,11 +139,6 @@
         <section id="typesense_queue" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1"
                  translate="label">
             <label>Indexing Queue / Cron</label>
-            <comment>
-                <![CDATA[
-                        <div class="typesense-admin-content"></div>
-                        ]]>
-            </comment>
             <tab>typesense</tab>
             <resource>Monogo_Typesense::config</resource>
             <group id="queue" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"

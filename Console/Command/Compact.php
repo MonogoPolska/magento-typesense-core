@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Monogo\TypesenseCore\Console\Command;
 
 use Http\Client\Exception;
+use Magento\Framework\Console\Cli;
 use Monogo\TypesenseCore\Adapter\Client;
 use Monogo\TypesenseCore\Exceptions\ConnectionException;
 use Symfony\Component\Console\Command\Command;
@@ -14,10 +15,7 @@ use Typesense\Exceptions\TypesenseClientError;
 
 class Compact extends Command
 {
-    /**
-     * @var Client
-     */
-    protected Client $client;
+    private Client $client;
 
     /**
      * @param Client $client
@@ -54,6 +52,7 @@ class Compact extends Command
         $client = $this->client->getClient();
         $operation = $client->getOperations()->perform('db/compact');
         $output->writeln('Compacting database: ' . $operation['success']);
-        return 1;
+
+        return Cli::RETURN_SUCCESS;
     }
 }
