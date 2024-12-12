@@ -19,6 +19,8 @@
             <advanced>
                 <number_of_element_by_page>300</number_of_element_by_page>
                 <archive_clear_limit>30</archive_clear_limit>
+                <index_batch_size>100</index_batch_size>
+                <index_sleep>0</index_sleep>
             </advanced>
         </typesense_advanced>
         <typesense_queue>

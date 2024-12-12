@@ -147,9 +147,12 @@ abstract class Indexer
         if (isset($data['toIndex']) && count($data['toIndex'])) {
             $dataToIndex = $data['toIndex'];
 
-            foreach (array_chunk($dataToIndex, 100) as $chunk) {
+            foreach (array_chunk($dataToIndex, $this->configService->getIndexBatchSize() ?? 100) as $chunk) {
                 try {
                     $this->indexManager->addObjects($chunk, $toIndexName);
+                    if ($this->configService->getIndexSleepTime() > 0) {
+                        sleep($this->configService->getIndexSleepTime());
+                    }
                 } catch (Exception $e) {
                     $this->logger->log($e->getMessage());
                     continue;
@@ -174,7 +177,7 @@ abstract class Indexer
             $this->indexManager->addAlias($toIndexName, $aliasName);
             $this->eventManager->dispatch(
                 'typesense_core_after_add_alias',
-                ['store_id'=> $storeId, 'alias' => $aliasName, 'collection' => $toIndexName]
+                ['store_id' => $storeId, 'alias' => $aliasName, 'collection' => $toIndexName]
             );
         }
 

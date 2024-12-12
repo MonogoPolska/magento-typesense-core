@@ -28,6 +28,8 @@ class ConfigService
     const TYPESENSE_NUMBER_OF_ELEMENT_BY_PAGE = 'typesense_advanced/advanced/number_of_element_by_page';
     const TYPESENSE_ARCHIVE_LOG_CLEAR_LIMIT = 'typesense_advanced/advanced/archive_clear_limit';
     const TYPESENSE_AUTOCOMPLETE_SECTIONS = 'typesense_advanced/advanced/sections';
+    const TYPESENSE_INDEX_BATCH_SIZE = 'typesense_advanced/advanced/index_batch_size';
+    const TYPESENSE_INDEX_SLEEP = 'typesense_advanced/advanced/index_sleep';
 
     const TYPESENSE_IS_QUEUE_ACTIVE = 'typesense_queue/queue/active';
     const TYPESENSE_NUMBER_OF_JOB_TO_RUN = 'typesense_queue/queue/number_of_job_to_run';
@@ -274,6 +276,32 @@ class ConfigService
             return array_values($attrs);
         }
         return [];
+    }
+
+    /**
+     * @param int|null $storeId
+     * @return int
+     */
+    public function getIndexBatchSize(int $storeId = null): int
+    {
+        return (int)$this->scopeConfig->getValue(
+            self::TYPESENSE_INDEX_BATCH_SIZE,
+            ScopeConfig::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * @param int|null $storeId
+     * @return int
+     */
+    public function getIndexSleepTime(int $storeId = null): int
+    {
+        return (int)$this->scopeConfig->getValue(
+            self::TYPESENSE_INDEX_SLEEP,
+            ScopeConfig::SCOPE_STORE,
+            $storeId
+        );
     }
 
     /**

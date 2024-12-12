@@ -1,5 +1,8 @@
 # CHANGE LOG
 
+## [1.0.8] - 2024-12-12
+- Added batch size and batch sleep in config to prevent Not Ready or Lagging response.
+
 ## [1.0.7] - 2024-03-19
 - Fixed issue with invalid XML node, which blocked module configuration page from render.
 
