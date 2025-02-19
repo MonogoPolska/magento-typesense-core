@@ -50,10 +50,10 @@ trait CastTrait
     }
 
     /**
-     * @param string $value
+     * @param mixed $value
      * @return bool
      */
-    public function isValidFloat(string $value): bool
+    public function isValidFloat(mixed $value): bool
     {
         return floatval($value) !== INF;
     }

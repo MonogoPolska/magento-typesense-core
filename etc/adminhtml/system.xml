@@ -31,9 +31,10 @@
                         ]]>
                     </comment>
                 </field>
-                <field id="search_only_key" type="text" sortOrder="40" showInWebsite="1" showInStore="1"
+                <field id="search_only_key" type="obscure" sortOrder="40" showInWebsite="1" showInStore="1"
                        showInDefault="1" translate="label">
                     <label>Search Only Key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
                     <comment>
                         <![CDATA[
                            Read more about

@@ -139,7 +139,7 @@ abstract class Indexer
 
         $this->eventManager->dispatch(
             'typesense_core_before_process_index',
-            ['data' => $data]
+            ['data' => $data, 'indexAlias' => $aliasName, 'collection' => $toIndexName],
         );
 
         $isFullReindex = (!$dataIds);
@@ -183,7 +183,7 @@ abstract class Indexer
 
         $this->eventManager->dispatch(
             'typesense_core_after_process_index',
-            ['data' => $data]
+            ['data' => $data, 'indexAlias' => $aliasName, 'collection' => $toIndexName],
         );
     }
 
