@@ -3,6 +3,7 @@
 - Added encryption to search_only_key configuration field.
 - Added alias and collection name to process index observers.
 - Minor fixes.
+- Typesense-php version update
 
 ## [1.0.8] - 2024-12-12
 - Added batch size and batch sleep in config to prevent Not Ready or Lagging response.
