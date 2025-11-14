@@ -86,7 +86,7 @@ class Metrics extends Command
     {
         $output->write('Server version: ');
         $version = $client->getDebug()->retrieve();
-        $output->writeln($version['version']);
+        $output->writeln((string)$version['version']);
     }
 
     /**
@@ -100,7 +100,7 @@ class Metrics extends Command
     {
         $output->write('Health status: ');
         $health = $client->getHealth()->retrieve();
-        $output->writeln($health['ok']);
+        $output->writeln((string)$health['ok']);
     }
 
     /**
