@@ -56,8 +56,8 @@ class Job extends AbstractModel implements JobInterface
         Context                $context,
         Registry               $registry,
         ObjectManagerInterface $objectManager,
-        AbstractResource       $resource = null,
-        AbstractDb             $resourceCollection = null,
+        ?AbstractResource       $resource = null,
+        ?AbstractDb             $resourceCollection = null,
         array                  $data = [],
         array                  $additionalData = []
     )
