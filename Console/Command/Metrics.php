@@ -39,7 +39,7 @@ class Metrics extends Command
      * @param Client $client
      * @param string|null $name
      */
-    public function __construct(Client $client, string $name = null)
+    public function __construct(Client $client, ?string $name = null)
     {
         parent::__construct($name);
         $this->client = $client;

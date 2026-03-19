@@ -264,7 +264,7 @@ class ConfigService
      * @param int|null $storeId
      * @return array
      */
-    public function getAutocompleteSections(int $storeId = null): array
+    public function getAutocompleteSections(?int $storeId = null): array
     {
         $attrs = $this->unserialize($this->scopeConfig->getValue(
             self::TYPESENSE_AUTOCOMPLETE_SECTIONS,
@@ -282,7 +282,7 @@ class ConfigService
      * @param int|null $storeId
      * @return int
      */
-    public function getIndexBatchSize(int $storeId = null): int
+    public function getIndexBatchSize(?int $storeId = null): int
     {
         return (int)$this->scopeConfig->getValue(
             self::TYPESENSE_INDEX_BATCH_SIZE,
@@ -295,7 +295,7 @@ class ConfigService
      * @param int|null $storeId
      * @return int
      */
-    public function getIndexSleepTime(int $storeId = null): int
+    public function getIndexSleepTime(?int $storeId = null): int
     {
         return (int)$this->scopeConfig->getValue(
             self::TYPESENSE_INDEX_SLEEP,

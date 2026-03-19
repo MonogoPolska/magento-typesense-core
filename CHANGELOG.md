@@ -1,4 +1,7 @@
 # CHANGE LOG
+## [1.0.12] - 2026-03-19
+- Fix for php 8.4
+
 ## [1.0.9] - 2025-02-19
 - Added encryption to search_only_key configuration field.
 - Added alias and collection name to process index observers.

@@ -35,7 +35,7 @@ class Flush extends Command
     public function __construct(
         Client $client,
         ManagerInterface $eventManager,
-        string $name = null
+        ?string $name = null
     ) {
         parent::__construct($name);
 

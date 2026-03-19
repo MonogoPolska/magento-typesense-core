@@ -49,7 +49,7 @@ class DataProvider
      * @param int|null $storeId
      * @return array|int[]
      */
-    public function getStores(int $storeId = null):array
+    public function getStores(?int $storeId = null):array
     {
         if ($storeId !== null) {
             return [$storeId];
@@ -76,7 +76,7 @@ class DataProvider
      * @return array
      * @throws Exception
      */
-    public function getData(?int $storeId, array $dataIds = null): array
+    public function getData(?int $storeId, ?array $dataIds = null): array
     {
         return [];
     }
