@@ -99,7 +99,7 @@ abstract class Indexer
      * @throws TypesenseClientError
      * @throws JsonException
      */
-    public function rebuildIndex(?int $storeId, array $dataIds = null): void
+    public function rebuildIndex(?int $storeId, ?array $dataIds = null): void
     {
         if ($this->isIndexingEnabled($storeId) === false) {
             return;
@@ -130,7 +130,7 @@ abstract class Indexer
      * @throws NoSuchEntityException
      * @throws TypesenseClientError
      */
-    public function processIndex(?int $storeId, array $dataIds = null): void
+    public function processIndex(?int $storeId, ?array $dataIds = null): void
     {
         $aliasName = $this->getBaseIndexName($storeId) . $this->dataProvider->getIndexNameSuffix();
         $toIndexName = $this->getIndexName($this->dataProvider->getIndexNameSuffix(), $storeId, is_null($dataIds));
@@ -222,7 +222,7 @@ abstract class Indexer
      * @return array
      * @throws \Exception
      */
-    public function getEntityData(?int $storeId, array $dataIds = null): array
+    public function getEntityData(?int $storeId, ?array $dataIds = null): array
     {
         $this->startEmulation($storeId);
         $data = $this->dataProvider->getData($storeId, $dataIds);

@@ -46,7 +46,7 @@ class Collection extends JobCollection implements SearchResultInterface
                                $resourceModel,
         string                 $model = 'Magento\Framework\View\Element\UiComponent\DataProvider\Document',
                                $connection = null,
-        AbstractDb             $resource = null
+        ?AbstractDb            $resource = null
     )
     {
         parent::__construct(
@@ -115,7 +115,7 @@ class Collection extends JobCollection implements SearchResultInterface
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function setSearchCriteria(SearchCriteriaInterfaceAlias $searchCriteria = null): self
+    public function setSearchCriteria(?SearchCriteriaInterfaceAlias $searchCriteria = null): self
     {
         return $this;
     }
@@ -145,7 +145,7 @@ class Collection extends JobCollection implements SearchResultInterface
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function setItems(array $items = null)
+    public function setItems(?array $items = null)
     {
         return $this;
     }
