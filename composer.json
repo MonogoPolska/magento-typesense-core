@@ -7,12 +7,12 @@
     "require": {
         "php": ">=8.1",
         "php-http/curl-client": "*",
-        "typesense/typesense-php": "^5.0",
+        "typesense/typesense-php": "^6.0",
         "ext-libxml": "*",
         "ext-mbstring": "*",
         "ext-dom": "*"
     },
-    "version": "1.0.12",
+    "version": "1.0.13",
     "autoload": {
         "psr-4": {
             "Monogo\\TypesenseCore\\": ""
